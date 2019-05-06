@@ -24,7 +24,7 @@ let poseDetection;
 let video;
 let videoWidth, videoHeight;
 
-let spokenText = "";
+// let spokenText = "";
 
 let pastSessions = [];
 let pastSessionIndex = 0;
@@ -47,34 +47,34 @@ class PoseSession {
 let sessionPoseIndex = 0;
 
 // Speech recognition stuff
-var SpeechRecognition = SpeechRecognition || webkitSpeechRecognition;
-var SpeechGrammarList = SpeechGrammarList || webkitSpeechGrammarList;
-var SpeechRecognitionEvent =
-  SpeechRecognitionEvent || webkitSpeechRecognitionEvent;
-var recognition = new SpeechRecognition();
-recognition.continuous = true;
-recognition.lang = "en-US";
-recognition.interimResults = true;
-recognition.maxAlternatives = 1;
-recognition.start();
+// var SpeechRecognition = SpeechRecognition || webkitSpeechRecognition;
+// var SpeechGrammarList = SpeechGrammarList || webkitSpeechGrammarList;
+// var SpeechRecognitionEvent =
+//   SpeechRecognitionEvent || webkitSpeechRecognitionEvent;
+// var recognition = new SpeechRecognition();
+// recognition.continuous = true;
+// recognition.lang = "en-US";
+// recognition.interimResults = true;
+// recognition.maxAlternatives = 1;
+// recognition.start();
 
-recognition.onresult = function(event) {
-  let fullTranscript = "";
-  for (let r = 0; r < event.results.length; r++) {
-    fullTranscript += event.results[r][0].transcript;
-  }
-  spokenText = fullTranscript;
-  console.log("spoken text", spokenText);
-};
+// recognition.onresult = function(event) {
+//   let fullTranscript = "";
+//   for (let r = 0; r < event.results.length; r++) {
+//     fullTranscript += event.results[r][0].transcript;
+//   }
+//   spokenText = fullTranscript;
+//   console.log("spoken text", spokenText);
+// };
 
-recognition.onstart = function(event) {
-  console.log("speech recognition STARTED");
-};
+// recognition.onstart = function(event) {
+//   console.log("speech recognition STARTED");
+// };
 
-recognition.onend = function(event) {
-  console.log("speech recognition ended");
-  recognition.start();
-};
+// recognition.onend = function(event) {
+//   console.log("speech recognition ended");
+//   recognition.start();
+// };
 
 const lineWidth = 5;
 const allColors = [];
@@ -140,9 +140,6 @@ let sketchGuiState = {
     wordOptions: "repeat",
     splitOptions: "word",
     reverseOrder: false,
-    clearSpeech: function() {
-      spokenText = "";
-    },
     words: "move",
     color: "#0030cd",
     font: "Times New Roman",
@@ -150,7 +147,7 @@ let sketchGuiState = {
     size: 80
   },
   trail: {
-    numberOfPastPoses: 30,
+    numberOfPastPoses: 15,
     poseOffsetX: 10,
     poseOffsetY: 2
   },
@@ -230,15 +227,11 @@ export function initSketchGui(gui) {
     }
   });
 
-  gui.add(sketchGuiState, "showSkeleton");
-
   let text = gui.addFolder("Text");
-  gui.getRoot().remember(sketchGuiState.text);
   text.add(sketchGuiState.text, "showText");
   text.add(sketchGuiState.text, "wordOptions", ["repeat", "word by word"]);
   text.add(sketchGuiState.text, "splitOptions", ["word", "character"]);
   text.add(sketchGuiState.text, "reverseOrder");
-  text.add(sketchGuiState.text, "clearSpeech");
   text.add(sketchGuiState.text, "words");
   text.addColor(sketchGuiState.text, "color");
   text.add(sketchGuiState.text, "font", [
@@ -254,10 +247,8 @@ export function initSketchGui(gui) {
     .min(1)
     .max(500)
     .step(1);
-  text.open();
 
   let keypoints = gui.addFolder("Keypoints");
-  gui.getRoot().remember(sketchGuiState.keypoints);
   keypoints.add(sketchGuiState.keypoints, "showPoints");
   keypoints.add(sketchGuiState.keypoints, "pointsStyle", ["fill", "outline"]);
   keypoints
@@ -270,10 +261,7 @@ export function initSketchGui(gui) {
     keypoints.add(sketchGuiState.keypoints, part);
   });
 
-  keypoints.open();
-
   let trail = gui.addFolder("Trail");
-  gui.getRoot().remember(sketchGuiState.trail);
   trail
     .add(sketchGuiState.trail, "numberOfPastPoses")
     .min(1)
@@ -294,7 +282,6 @@ export function initSketchGui(gui) {
   trail.open();
 
   let paint = gui.addFolder("Paint");
-  gui.getRoot().remember(sketchGuiState.paint);
   paint
     .add(sketchGuiState.paint, "lifeSpan")
     .min(1)
@@ -306,23 +293,8 @@ let paintedWordIndex = 0;
 let playPoseToggle = 0;
 let currentSession = new PoseSession();
 let currentPoses;
-let getNewFrame = true;
 async function sketchLoop() {
-  let poseArrays = [];
-
-  // FIX THIS... don't be using the array, be using the whole pose session to iterate I think
-
-  if (getNewFrame) {
-    currentPoses = await poseDetection.getPoses();
-  }
-  // getNewFrame = !getNewFrame;
-
-  // currentSession.addPoses(currentPoses);
-
-  // let allSessions = [currentSession].concat(pastSessions);
-
-  // console.log(allSessions);
-
+  currentPoses = await poseDetection.getPoses();
   ctx.clearRect(0, 0, canvas.width, canvas.height);
 
   // Background
@@ -384,7 +356,6 @@ function sketchFromPoseSession(aPoseSession) {
       }
 
       ctx.save();
-      //works with images
       if (ps.recording) {
         ctx.globalAlpha = 1.0;
       } else {
@@ -417,8 +388,6 @@ function sketchFromPoseSession(aPoseSession) {
           ctx.drawImage(video, 0, 0, canvas.width, canvas.height);
           ctx.restore();
         }
-
-        ctx.scale(-1, 1);
 
         // For all past poses...
         let wordIndex = 0;

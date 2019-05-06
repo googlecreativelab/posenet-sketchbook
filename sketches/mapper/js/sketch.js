@@ -76,33 +76,33 @@ let sketchGuiState = {
   keypoints: {
     showPoints: true,
     controlPointLocation: "nose",
-    pointsColor: "#000000",
-    pointsStyle: "fill",
-    pointSize: 5
+    pointsColor: "#f08080",
+    pointsStyle: "outline",
+    pointSize: 130
   },
   section1: {
     opacity: 0.8,
-    image: "parkseggleston1"
+    image: "image1"
   },
   section2: {
     opacity: 0.8,
-    image: "parkseggleston2"
+    image: "image2"
   },
   section3: {
     opacity: 0.8,
-    image: "parkseggleston3"
+    image: "image3"
   },
   section4: {
     opacity: 0.8,
-    image: "parkseggleston4"
+    image: "image4"
   },
   section5: {
     opacity: 0.8,
-    image: "parkseggleston5"
+    image: "image5"
   },
   section6: {
     opacity: 0.8,
-    image: "parkseggleston6"
+    image: "image6"
   }
 };
 
