@@ -4,9 +4,9 @@
 
 These prototypes are the thought starters that kicked off the process of creating [Body, Movement, Language: A.I. Sketches with Bill T. Jones](https://billtjonesai.com), a creative collaboration between The Google Creative Lab and New York Live Arts. Preparing for the first workshop with Bill and the Bill T. Jones/Arnie Zane Company, we wanted to provide examples of the range of interactions that PoseNet can enable, so we experimented with lots of different ways of using the model. This is essentially the raw starter sketchbook that asks: what can you do when you combine movement and machine? 
 
-This is not a library or code repository that intends to evolve. Instead, it is an archive of Body, Movement, Language’s beginnings. You can try out the sketches on the live site [here](https://pose-playground.appspot.com/), and you can use this collection of code as a starting point to create your own wacky or wild or just plain useful PoseNet experiments.
+This is not a library or code repository that intends to evolve. Instead, it is an archive of Body, Movement, Language’s beginnings. You can try out the sketches on the live site [here](https://googlecreativelab.github.io/posenet-sketchbook/), and you can use this collection of code as a starting point to create your own wacky or wild or just plain useful PoseNet experiments.
 
-To read more about the journey from PoseNet Sketchbook to Body, Movement, Language in the blog post [here](https://github.com/mayaman).
+To read more about the journey from PoseNet Sketchbook to Body, Movement, Language in the blog post [here](https://medium.com/@mayaman/mixing-movement-and-machine-848095ea5596).
 
 ## Install and Run
 
