@@ -110,10 +110,10 @@ let sketchGuiState = {
   canvasScale: 1,
   visual: "trail",
   backgroundColor: "#ff4490",
-  poseColor: "#c8434b",
   showVideo: false,
   showSideVideo: true,
   keypoints: {
+    color: "#c8434b",
     showPoints: false,
     pointsStyle: "fill",
     pointSize: 5,
@@ -205,7 +205,7 @@ export function initSketchGui(gui) {
         break;
       case "paint":
         sketchGuiState.backgroundColor = "#000000";
-        sketchGuiState.poseColor = "#ffffff";
+        sketchGuiState.keypoints.color = "#ffffff";
         sketchGuiState.keypoints.pointSize = 25;
         sketchGuiState.text.color = "#ffffff";
         trail.close();
@@ -215,7 +215,6 @@ export function initSketchGui(gui) {
   });
 
   gui.addColor(sketchGuiState, "backgroundColor");
-  gui.addColor(sketchGuiState, "poseColor");
 
   gui.add(sketchGuiState, "showVideo");
   let sideVideoController = gui.add(sketchGuiState, "showSideVideo");
@@ -250,6 +249,7 @@ export function initSketchGui(gui) {
 
   let keypoints = gui.addFolder("Keypoints");
   keypoints.add(sketchGuiState.keypoints, "showPoints");
+  keypoints.addColor(sketchGuiState.keypoints, 'color');
   keypoints.add(sketchGuiState.keypoints, "pointsStyle", ["fill", "outline"]);
   keypoints
     .add(sketchGuiState.keypoints, "pointSize")
@@ -397,7 +397,7 @@ function sketchFromPoseSession(aPoseSession) {
         for (let p = 0; p < ps.pastPoses.length; p++) {
           let pastPose = ps.pastPoses[p];
           if (pose) {
-            let newColor = hexToRgb(sketchGuiState.poseColor);
+            let newColor = hexToRgb(sketchGuiState.keypoints.color);
             let alpha = (ps.pastPoses.length - p) / ps.pastPoses.length;
             let newColorString =
               "rgba(" +
@@ -519,7 +519,7 @@ function sketchFromPoseSession(aPoseSession) {
           let newPaintedPose = new PaintedPose(
             pose,
             minPartConfidence,
-            sketchGuiState.poseColor,
+            sketchGuiState.keypoints.color,
             ps.settings,
             ctx,
             textToShow
@@ -598,7 +598,7 @@ function sketchFromPoseArray(poseArray) {
       for (let p = 0; p < pastPoses.length; p++) {
         let pastPose = pastPoses[p];
         if (pose) {
-          let newColor = hexToRgb(sketchGuiState.poseColor);
+          let newColor = hexToRgb(sketchGuiState.keypoints.color);
           let alpha = (pastPoses.length - p) / pastPoses.length;
           let newColorString =
             "rgba(" +
@@ -714,7 +714,7 @@ function sketchFromPoseArray(poseArray) {
         let newPaintedPose = new PaintedPose(
           pose,
           minPartConfidence,
-          sketchGuiState.poseColor,
+          sketchGuiState.keypoints.color,
           sketchGuiState,
           ctx,
           textToShow
