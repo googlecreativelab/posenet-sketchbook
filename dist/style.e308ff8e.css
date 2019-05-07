@@ -1,0 +1,86 @@
+body {
+  background: lightcoral;
+  color: floralwhite;
+  font-family: 'Poppins', sans-serif;
+  padding: 20px;
+}
+
+#header-container {
+  text-align: center;
+  margin-bottom: 4%;
+}
+
+#header-container #title {
+    font-size: 3.0em;
+    margin-bottom: 0;
+}
+
+#header-container #subtitle {
+  margin-top: 0;
+}
+
+#header-container #subtitle a {
+  font-size: 1.2em;
+  color: floralwhite;
+}
+
+#header-container #subtitle a:hover {
+  color: palegreen;
+}
+
+div#prototype-container {
+    margin: auto;
+    display: block;
+    text-align: center;
+}
+
+.prototype-option {
+  width: 25%;
+  display: inline-block;
+  margin: 1%;
+  text-align: center;
+  text-decoration: none;
+}
+
+.prototype-option img:hover {
+  opacity: 0.5;
+}
+
+.match-prototype-option {
+  background-attachment: pink;
+  width: 33%;
+  display: inline-block;
+  margin: 5%;
+  text-align: center;
+  text-decoration: none;
+}
+
+.prototype-title {
+  font-size: 1.2em;
+  padding: 10px;
+}
+
+.prototype-thumbnail {
+  display: inline-block;
+  width: 100%;
+}
+
+#privacy {
+  float: right;
+  color: floralwhite;
+  padding-bottom: 10px;
+}
+
+#privacy #squiggle-break {
+  float: right;
+}
+
+#privacy a {
+  float: right;
+  text-decoration: none;
+  color: floralwhite;
+}
+
+#privacy a:hover {
+  color: palegreen;
+}
