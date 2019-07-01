@@ -1,0 +1,23 @@
+body {
+    background: lightcoral;
+    color: lightgray;
+    font-size: 3em;
+    font-family: 'Poppins', sans-serif;
+}
+
+#title {
+    color: lightgray;
+    font-size: 3em;
+    padding-bottom: 25px;
+    text-align: left;
+}
+
+#output {
+    margin-left: auto;
+    margin-right: auto;
+    display: block;
+}
+
+.dg.a {
+    float: left !important;
+}

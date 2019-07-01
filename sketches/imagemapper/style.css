@@ -1,0 +1,39 @@
+body {
+  background: lightcoral;
+  color: lightgray;
+  font-size: 3em;
+  font-family: arial;
+  overflow: hidden;
+}
+
+#title {
+  color: lightgray;
+  font-size: 3em;
+  font-family: arial;
+  padding-bottom: 25px;
+  text-align: left;
+}
+
+#canvas-container {
+  margin: auto;
+  display: block;
+  text-align: center;
+  margin-top: 10%;
+}
+
+#output {
+  margin-left: auto;
+  margin-right: auto;
+  display: inline-block;
+}
+
+#livestream {
+  margin-left: auto;
+  margin-right: auto;
+  display: inline-block;
+}
+
+.dg.a {
+  float: left !important;
+}
+
