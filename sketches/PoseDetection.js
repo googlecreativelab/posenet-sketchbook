@@ -33,7 +33,13 @@ export default class PoseDetection {
   }
 
   async initPoseDetection() {
-    this.net = await posenet.load(0.75);
+    // this.net = await posenet.load(0.75); // Old version of posenet
+    this.net = await posenet.load({
+    architecture: 'MobileNetV1',
+    outputStride: 16,
+    inputResolution: 513,
+    multiplier: 0.75});
+
   }
 
   initGui(gui) {
@@ -180,28 +186,25 @@ export default class PoseDetection {
     // down the GPU
     const imageScaleFactor = this.guiState.input.imageScaleFactor;
     const outputStride = +this.guiState.input.outputStride;
+    const flipHorizonal = this.flipHorizontal;
 
     let poses = [];
     switch (this.algorithm) {
       case "single":
-        const pose = await this.net.estimateSinglePose(
-          this.video,
-          imageScaleFactor,
-          this.flipHorizontal,
-          outputStride
-        );
+        const pose = await this.net.estimateSinglePose(this.video, {
+          flipHorizontal: this.flipHorizontal
+        });
+
         poses.push(pose);
         break;
       case "multi":
-        poses = await this.net.estimateMultiplePoses(
-          this.video,
-          imageScaleFactor,
-          this.flipHorizontal,
-          outputStride,
-          this.guiState.multiPoseDetection.maxPoseDetections,
-          this.guiState.multiPoseDetection.minPartConfidence,
-          this.guiState.multiPoseDetection.nmsRadius
-        );
+          poses = await this.net.estimateMultiplePoses(
+          this.video, {
+            flipHorizontal: this.flipHorizontal,
+            maxDetections: 5,
+            scoreThreshold: this.guiState.multiPoseDetection.minPartConfidence,
+            nmsRadius: this.guiState.multiPoseDetection.nmsRadius
+          });
         break;
     }
 
