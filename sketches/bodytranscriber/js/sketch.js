@@ -176,15 +176,15 @@ async function sketchLoop() {
 
     drawTextTorso(
       text,
-      singlePose.parts.rightShoulder.position,
       singlePose.parts.leftShoulder.position,
+      singlePose.parts.rightShoulder.position,
       ctx
     );
 
     drawTextTorso(
       text,
-      singlePose.parts.rightEar.position,
       singlePose.parts.leftEar.position,
+      singlePose.parts.rightEar.position,
       ctx
     );
   }

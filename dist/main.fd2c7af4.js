@@ -49846,8 +49846,7 @@ async function sketchLoop() {
     let singlePose = pose;
     let distanceScale = poseDetection.getDistance(singlePose.parts.leftEye.position, singlePose.parts.leftEar.position);
     let keypoints = pose.keypoints;
-    let score = pose.score; // Adjust confidence per pose
-    // Left arm
+    let score = pose.score; // Left arm
 
     drawLimb(singlePose.parts.leftShoulder, singlePose.parts.leftElbow, minPartConfidence, leftUpperarms[sketchGuiState.collageIndex], ctx);
     drawLimb(singlePose.parts.leftElbow, singlePose.parts.leftWrist, minPartConfidence, leftForearms[sketchGuiState.collageIndex], ctx); // Right arm
@@ -49862,7 +49861,7 @@ async function sketchLoop() {
     drawLimb(singlePose.parts.rightKnee, singlePose.parts.rightAnkle, minPartConfidence, rightShins[sketchGuiState.collageIndex], ctx);
     let torsoImage = torsos[sketchGuiState.collageIndex]; // Torso
 
-    ctx.drawImage(torsoImage, singlePose.parts.rightShoulder.position.x, singlePose.parts.rightShoulder.position.y, poseDetection.getDistance(singlePose.parts.leftShoulder.position, singlePose.parts.rightShoulder.position), poseDetection.getDistance(singlePose.parts.leftShoulder.position, singlePose.parts.leftHip.position));
+    ctx.drawImage(torsoImage, singlePose.parts.leftShoulder.position.x, singlePose.parts.leftShoulder.position.y, poseDetection.getDistance(singlePose.parts.leftShoulder.position, singlePose.parts.rightShoulder.position), poseDetection.getDistance(singlePose.parts.leftShoulder.position, singlePose.parts.leftHip.position));
     let headImage = heads[sketchGuiState.collageIndex]; // Head
 
     let headWidth = poseDetection.getDistance(singlePose.parts.leftEar.position, singlePose.parts.rightEar.position);

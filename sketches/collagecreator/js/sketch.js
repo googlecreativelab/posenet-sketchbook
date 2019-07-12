@@ -234,8 +234,6 @@ async function sketchLoop() {
 
     let keypoints = pose.keypoints;
     let score = pose.score;
-
-    // Adjust confidence per pose
     
     // Left arm
     drawLimb(
@@ -306,8 +304,8 @@ async function sketchLoop() {
     // Torso
     ctx.drawImage(
       torsoImage,
-      singlePose.parts.rightShoulder.position.x,
-      singlePose.parts.rightShoulder.position.y,
+      singlePose.parts.leftShoulder.position.x,
+      singlePose.parts.leftShoulder.position.y,
       poseDetection.getDistance(
         singlePose.parts.leftShoulder.position,
         singlePose.parts.rightShoulder.position
