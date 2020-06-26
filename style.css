@@ -2,7 +2,6 @@ body {
   background: lightcoral;
   color: #0E0E0E;
   font-family: 'Poppins', sans-serif;
-  /* padding: 20px 50px; */
   margin: 0px;
 }
 
@@ -12,7 +11,6 @@ body {
   background: #0E0E0E;
   color: lightcoral;
   height: 90vh;
-  /* padding: 0px 50px; */
 }
 
 #title-container {
@@ -161,10 +159,7 @@ img.hidden {
 
 #footer a:hover {
   font-weight: bold;
-  /* text-decoration: underline; */
 }
 
 .container {
-  /* padding: 25px 50px; */
-  /* width: 100%; */
 }

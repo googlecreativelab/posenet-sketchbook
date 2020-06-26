@@ -1,16 +1,14 @@
 
 <img src="header.png" alt="PoseNet Sketchbook" width="9250" height="autio">
 
-# PoseNet Sketchbook
-
-##### A collection of web experiments designed to allude to the artistic possibilities of using PoseNet (running on tensorflow.js) to create a relationship between movement and machine. 
+#### PoseNet Sketchbook is a collection of open source, interactive web experiments designed to allude to the artistic possibilities of using PoseNet (running on tensorflow.js) to create a relationship between movement and machine.
 
 
-CHECK OUT THE [LIVE DEMOS](https://googlecreativelab.github.io/posenet-sketchbook/).
+[Try out the live demos](https://googlecreativelab.github.io/posenet-sketchbook/).
 
-These prototypes are the thought starters that kicked off the process of creating [Body, Movement, Language: A.I. Sketches with Bill T. Jones](https://billtjonesai.com), a creative collaboration between The Google Creative Lab and New York Live Arts. Preparing for the first workshop with Bill and the Bill T. Jones/Arnie Zane Company, we wanted to provide examples of the range of interactions that PoseNet can enable, so we experimented with lots of different ways of using the model. This is essentially the raw starter sketchbook that asks: what can you do when you combine movement and machine? 
+These prototypes exemplify a wide range of interactions that PoseNet can enable. Together, they make up a raw starter kit that is built to be used by dancers and developers alike. 
 
-This is not a library or code repository that intends to evolve. Instead, it is an archive of Body, Movement, Language’s beginnings. You can use this collection of code as a starting point to create your own wacky or wild or just plain useful PoseNet experiments.
+This is not a library or code repository that intends to evolve. Instead, it is an archive of where [Body, Movement, Language](https://experiments.withgoogle.com/billtjonesai) first began. You can use this collection of code as a starting point to create your own wacky or wild or just plain useful PoseNet experiments.
 
 To read more about the journey from PoseNet Sketchbook to Body, Movement, Language in the blog post [here](https://medium.com/@mayaman/mixing-movement-and-machine-848095ea5596).
 

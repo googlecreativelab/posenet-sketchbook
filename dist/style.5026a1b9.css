@@ -1,13 +1,13 @@
 body {
   background: lightcoral;
-  color: lightgray;
+  color: #0E0E0E;
   font-size: 3em;
   font-family: 'Poppins', sans-serif;
   overflow: hidden;
 }
 
 #title {
-  color: lightgray;
+  color: #0E0E0E;
   font-size: 3em;
   padding-bottom: 25px;
   text-align: left;
