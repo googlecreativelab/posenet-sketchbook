@@ -1,0 +1,165 @@
+body {
+  background: lightcoral;
+  color: #0E0E0E;
+  font-family: 'Poppins', sans-serif;
+  margin: 0px;
+}
+
+
+#header-container {
+  display: flex;
+  background: #0E0E0E;
+  color: lightcoral;
+  height: 90vh;
+}
+
+#title-container {
+  display: inline-block;
+  flex: 1;
+  position: relative;
+}
+
+#title-contents {
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+}
+
+#video-container {
+  display: inline-block;
+  text-align: center;
+  flex: 1;
+  position: relative;
+}
+
+#video-container iframe {
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+
+  width: 80%;
+  height: 80%;
+}
+
+
+#header-container #title {
+  margin: 0px;
+  font-weight: normal;
+  text-align: center;
+  font-size: 96px;
+  line-height: 144px;
+  display: flex;
+}
+
+.cta {
+  width: 100%;
+  color: #0E0E0E;
+  text-align: center;
+  font-size: 24px;
+  height: 5vh;
+  line-height: 5vh;
+}
+
+#code-link-container {
+  width: 100%;
+  color: #0E0E0E;
+  text-align: center;
+  border-bottom: 2px solid;
+  font-size: 24px;
+}
+
+.cta .cta-link:hover {
+  color: #0E0E0E;
+  font-weight: bold;
+  /* transition: ease 2s; */
+  cursor: pointer;
+}
+
+.cta .cta-link {
+  color: #0E0E0E;
+  width: 100vw;
+  display: block;
+  text-decoration: none;
+}
+
+/* SKETCHES */
+div#prototype-container {
+  margin: auto;
+  display: block;
+  text-align: left;
+}
+
+.prototype-options {
+  padding-top: 25px;
+  display: flex;
+  flex-flow: row wrap;
+  justify-content: space-between;
+  padding: 25px 50px;
+}
+
+.prototype-option {
+  max-width: 30.33%;
+  margin: 15px;
+  display: inline-block;
+  text-align: center;
+  text-decoration: none;
+  border: 2px solid #0E0E0E;
+}
+
+.prototype-option:hover > .prototype-title {
+  font-weight: bold;
+  cursor: pointer;
+}
+
+.match-prototype-option {
+  background-attachment: pink;
+  width: 33%;
+  display: inline-block;
+  margin: 5%;
+  text-align: center;
+  text-decoration: none;
+}
+
+img.hidden {
+  display: none;
+}
+
+.prototype-title {
+  padding: 10px;
+  font-size: 24px;
+}
+
+.prototype-thumbnail {
+  display: inline-block;
+  width: 100%;
+  height: auto;
+  border-bottom: 2px solid #0E0E0E;
+}
+
+/* FOOTER */
+#footer {
+  background: #0E0E0E;
+  color: lightcoral;
+  height: 5vh;
+  line-height: 5vh;
+  padding: 0 65px;
+}
+
+#footer #squiggle-break {
+  float: right;
+}
+
+#footer a {
+  float: right;
+  text-decoration: none;
+  color: lightcoral;
+}
+
+#footer a:hover {
+  font-weight: bold;
+}
+
+.container {
+}
