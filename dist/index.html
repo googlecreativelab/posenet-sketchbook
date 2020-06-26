@@ -1,19 +1,34 @@
 <!DOCTYPE html>
 <html>
-  <head>
-    <title>PoseNet Sketchbook</title>
-    <link rel="icon" href="/favicon.26242483.ico" type="image/png">
-    <link rel="stylesheet" href="/style.e308ff8e.css">
-    <link href="https://fonts.googleapis.com/css?family=Poppins:600" rel="stylesheet">
-  </head>
-  <body>
-    <div id="header-container">
+
+<head>
+  <title>PoseNet Sketchbook</title>
+  <link rel="icon" href="/favicon.26242483.ico" type="image/png">
+  <link rel="stylesheet" href="/style.e308ff8e.css">
+  <link href="https://fonts.googleapis.com/css2?family=Poppins:ital,wght@0,400;0,500;1,400&display=swap" rel="stylesheet">
+</head>
+
+<body>
+  <div id="header-container" class="container">
+    <div id="title-container">
+      <div id="title-contents">
         <h1 id="title"> PoseNet Sketchbook</h1>
-        <h3 id="subtitle">
-          <a href="https://github.com/googlecreativelab/posenet-sketchbook">~ get the code on github ~</a>
-        </h3>
+      </div>
     </div>
-    <div id="prototype-container">
+    <div id="video-container">
+      <iframe src="https://player.vimeo.com/video/351534893" frameborder="0" allow="autoplay; fullscreen" allowfullscreen=""></iframe>
+    </div>
+  </div>
+  <div id="code-link-container" class="cta">
+    <a class="cta-link" href="https://github.com/googlecreativelab/posenet-sketchbook" target="_blank">⇨ GET THE CODE
+      ⇨</a>
+  </div>
+  <div id="prototype-container" class="container">
+    <div class="cta">
+      <div href="" class="cta-link" id="try-link">⇩ TRY IT OUT ⇩</div>
+    </div>
+
+    <div class="prototype-options">
       <div class="prototype-option" id="basic-demo">
         <a href="/sketches/basic/index.html">
           <img src="/thumbnail.fccf23bf.png" onmouseover="hover(this, 'https://raw.githubusercontent.com/googlecreativelab/posenet-sketchbook/master/sketches/basic/assets/moving.gif')" onmouseout="unhover(this, 'https://raw.githubusercontent.com/googlecreativelab/posenet-sketchbook/master/sketches/basic/assets/thumbnail.png')" class="prototype-thumbnail" alt="">
@@ -72,22 +87,30 @@
         <div class="prototype-title">Audio Controller</div>
       </div>
     </div>
-    <div id="privacy">
-      <a href="https://policies.google.com/?hl=en">Privacy and Terms</a>
-      <br>
-      <div id="squiggle-break">~~~~~~~~~~~~~~~</div>
-      <br>
-      All of these experiments are entirely private. Nothing leaves your machine.
-      <br>
+  </div>
+  <div id="footer">
+    <div class="footer-elt"> <a href="https://policies.google.com/?hl=en">Privacy and Terms</a>
     </div>
-  </body>
-  <script>function hover(element, link) {
-  // element.setAttribute('src', element.nextSibling.nextSibling.src);
+    <div class="footer-elt">
+      All of these experiments are entirely private. Nothing leaves your machine.
+    </div>
+  </div>
+</body>
+<script>function hover(element, link) {
   element.setAttribute('src', link);
 }
 
 function unhover(element, link) {
-  // element.setAttribute('src', element.nextSibling.nextSibling.nextSibling.nextSibling.src);
   element.setAttribute('src', link);
-}</script>
+}
+
+function smoothScroll() {
+  document.getElementById('prototype-container').scrollIntoView(true);
+}
+
+document.getElementById('try-link').addEventListener('click', () => {
+  console.log('scrolling!');
+  smoothScroll();
+});</script>
+
 </html>
